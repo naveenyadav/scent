@@ -1,0 +1,17 @@
+post:
+  expiry:
+    dayCount: '1'
+  downvote:
+    hour: '-1'
+  upvote:
+    one:
+      hour: '1'
+    thousand:
+      hour: '12'
+    twothousands:
+      hour: '24'
+mongodb:
+  url: mongodb+srv://user_dev:SNmPcspDHLI3BwAs@clusterfeed-9uqny.mongodb.net/test?retryWrites=true
+  path: mongodb://localhost:27017
+  database:
+    name: feedService2018
