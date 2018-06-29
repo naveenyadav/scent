@@ -187,7 +187,7 @@ public final class LoggerUtil {
         // Cloning the object to print as operating on the original object is
         // likely to throw concurrentModificationexception
         Object[] objectCopy = array.clone();
-        String str = CommonUtil.join(objectCopy, ", ");
+        String str = StringUtil.join(objectCopy, ", ");
         objectCopy = null;
         if (str.length() <= TWO) {
             return EMPTY;
@@ -230,9 +230,9 @@ public final class LoggerUtil {
     public static String removeParamsFrmString(String str, List<String> params) {
         String finalString = str;
 
-        if (CommonUtil.isNotBlank(str) && !params.isEmpty()) {
+        if (StringUtil.isNotBlank(str) && !params.isEmpty()) {
             for (String param : params) {
-                if (CommonUtil.isNotBlank(param)) {
+                if (StringUtil.isNotBlank(param)) {
                     finalString = finalString.replaceAll(param + "=[\\[\\s\\w.-]*[^,]", "");
                 }
             }
@@ -257,7 +257,7 @@ public final class LoggerUtil {
      */
     public static String getThreadDetails(long id, String ip, String userId, String uri, String domain) {
         String userNo = userId;
-        if (CommonUtil.isEmpty(userNo)) {
+        if (StringUtil.isEmpty(userNo)) {
             userNo = EMPTY;
         }
         StringBuilder threadLogDeatils = new StringBuilder(THREAD).append(EQUAL + id)

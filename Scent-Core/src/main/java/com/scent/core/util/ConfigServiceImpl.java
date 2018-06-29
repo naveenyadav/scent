@@ -26,7 +26,7 @@ public class ConfigServiceImpl {
         YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
         for (File file : propertyFileList) {
             final String fileName = file.getName();
-            final String brandName = CommonUtil.substringBefore(CommonUtil.substringBefore(fileName, DOT),
+            final String brandName = StringUtil.substringBefore(StringUtil.substringBefore(fileName, DOT),
                     SEPARATOR);
             StringBuilder filePath = new StringBuilder();
             filePath.append(System.getProperty(SHARED_LOCATION)).append(FORWARD_SLASH)
@@ -74,7 +74,7 @@ public class ConfigServiceImpl {
      */
     public Object getPropertyValue(String fileName, String key) {
         Object value = null;
-        if (CommonUtil.isEmpty(fileName) || CommonUtil.isEmpty(key)) {
+        if (StringUtil.isEmpty(fileName) || StringUtil.isEmpty(key)) {
             throw new IllegalArgumentException("Key is required!");
         } else {
             final Properties props = appConfigsMap.get(fileName.toLowerCase());

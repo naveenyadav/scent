@@ -59,7 +59,7 @@ public final class XssSanitizerUtil {
      * @return true if the string is null or trimmed has zero length.
      */
     public static boolean isNullTrimmedString(String value) {
-        return value == null || CommonUtil.isEmpty(value.trim()) || CommonUtil.isBlank(value.trim())
+        return value == null || StringUtil.isEmpty(value.trim()) || StringUtil.isBlank(value.trim())
                 || NULL.equalsIgnoreCase(value);
     }
 
@@ -73,7 +73,7 @@ public final class XssSanitizerUtil {
      */
     public static String stripXSS(String value) {
         String stripedString = "";
-        if (CommonUtil.isNullTrimmedString(value) || value.contains(HTTP) || value.contains(HTTPS)
+        if (StringUtil.isNullTrimmedString(value) || value.contains(HTTP) || value.contains(HTTPS)
                 || value.contains(AMPERSAND)) {
             stripedString = value;
         } else {
@@ -106,7 +106,7 @@ public final class XssSanitizerUtil {
     public static Map<String, String> stripXSSMap(Map<String, String> map) {
         Map<String, String> resultMap = new HashMap<>();
 
-        if (CommonUtil.isEmpty(map)) {
+        if (StringUtil.isEmpty(map)) {
             return map;
         } else {
             map.forEach((k, v) -> resultMap.put(k, XssSanitizerUtil.stripXSS(v)));
