@@ -1,2 +1,8 @@
 Scent-Core/target/
 .idea/
+Scent/target/
+account-service/target/
+Scent-Core/Scent-Core.iml
+Scent/Scent.iml
+Account-Service/Account-Service.iml
+Scent-Parent.iml

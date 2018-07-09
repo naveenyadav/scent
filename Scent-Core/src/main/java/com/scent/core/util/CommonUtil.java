@@ -82,7 +82,7 @@ public class CommonUtil {
      * @return isSuccessResponse the boolean value
      */
     public static boolean isSuccessResponse(JSONObject jsonObject) {
-        boolean isSuccessResponse = true;
+        boolean isSuccessResponse = false;
         if (null == jsonObject) {
             isSuccessResponse = false;
         }else {

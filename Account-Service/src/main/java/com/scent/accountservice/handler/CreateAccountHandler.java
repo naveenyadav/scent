@@ -24,6 +24,7 @@ public class CreateAccountHandler implements BaseHandler {
         return getAccountStep.executeStep(eventData).flatMap(responseData -> {
             JSONObject jsonObject = (JSONObject) responseData.getData(GetAccountStep.class.getSimpleName());
             if(CommonUtil.isSuccessResponse(jsonObject)) {
+                System.out.println(jsonObject);
                 return signUp.executeStep(eventData);
             }else{
                 jsonObject.put(STAUS_CODE, ACOUNT_ALREADY_EXISTS_CODE);
