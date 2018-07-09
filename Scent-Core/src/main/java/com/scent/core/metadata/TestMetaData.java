@@ -1,6 +1,5 @@
 package com.scent.core.metadata;
 
-import com.scent.core.FeedServiceApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.lang.annotation.ElementType;
@@ -11,7 +10,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = FeedServiceApplication.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public @interface TestMetaData {
 
 }

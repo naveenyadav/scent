@@ -86,7 +86,9 @@ public class CommonUtil {
         if (null == jsonObject) {
             isSuccessResponse = false;
         }else {
-                if (jsonObject.has(ERROR_STATUS_KEY)) {
+            if (jsonObject.has(STATUS) && jsonObject.get(STATUS).equals(SUCCESS)) {
+                isSuccessResponse = true;
+            }else if(jsonObject.has(ERROR_STATUS_KEY)){
                 isSuccessResponse = false;
             }
         }

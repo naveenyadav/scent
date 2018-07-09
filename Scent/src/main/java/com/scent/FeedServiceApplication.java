@@ -1,4 +1,4 @@
-package com.scent.core;
+package com.scent;
 
 import com.mongodb.MongoClientURI;
 import com.mongodb.reactivestreams.client.MongoClient;

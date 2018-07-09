@@ -12,6 +12,7 @@
     <modules>
         <module>Scent-Core</module>
         <module>Account-Service</module>
+        <module>Scent</module>
     </modules>
     <name>Scent-Parent</name>
     <description>Demo project for Spring Boot</description>

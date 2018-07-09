@@ -1,9 +1,9 @@
 package com.scent.accountservice.controller;
 
 
+import com.scent.accountservice.handler.CreateAccountHandler;
 import com.scent.core.controller.BaseController;
-import com.scent.feedservice.data.EventData;
-import com.scent.feedservice.handler.CreateAccountHandler;
+import com.scent.core.data.EventData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +37,8 @@ public class AuthenticationCotroller extends BaseController {
     @RequestMapping(value = "/signUp", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<String> authSignUp(@RequestBody Map<String, String> queryParams) {
         EventData eventData = gerEventData(queryParams);
-        return createAccountHandler.getresult(eventData).flatMap(jsonObject -> {
-            return Mono.just(jsonObject.toString());
+        return createAccountHandler.getresult(eventData).flatMap(responseData -> {
+            return Mono.just(responseData.toString());
         });
 
 
