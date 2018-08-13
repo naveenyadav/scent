@@ -3,8 +3,7 @@ package com.scent;
 import com.mongodb.MongoClientURI;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
-import com.scent.accountservice.AccountConfig;
-import com.scent.core.CoreConfig;
+
 import com.scent.core.util.ConfigServiceImpl;
 import com.scent.core.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +12,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication(scanBasePackageClasses = {AccountConfig.class, CoreConfig.class})
+@SpringBootApplication
+@RestController
 public class FeedServiceApplication extends AbstractReactiveMongoConfiguration {
 
     @Autowired
     private ConfigServiceImpl configServiceImpl;
-
+    @RequestMapping("/")
+    String home() {
+        return "Hello World!";
+    }
 
     private final Environment environment;
 

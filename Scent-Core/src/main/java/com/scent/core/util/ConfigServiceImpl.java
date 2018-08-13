@@ -21,6 +21,7 @@ public class ConfigServiceImpl {
      */
     @PostConstruct
     public void init() {
+        System.out.println("Hello");
         appConfigsMap = new HashMap<>();
         final File[] propertyFileList = FileUtil.getPropertyFileList();
         YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
